@@ -1,10 +1,18 @@
+html {
+    height: 100%;
+}
 .title {
 	font-family: "Lily Script One";
 	font-size: 15vh;
     position: relative;
 }
 body {
-
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /*background: linear-gradient(0deg, #8db1ab, #cee397, #f4e04d);*/
+    background: linear-gradient(0deg, #d78a76, #f2a541, #f4e04d);
 }
 table {
     font-family: "Lexend";
@@ -15,6 +23,7 @@ table {
     top: 25px;
 }
 td {
+    background-color: white;
     width: 30px;
     height: 30px;
     border: solid 1px silver;
