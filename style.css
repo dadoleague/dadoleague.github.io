@@ -1,0 +1,29 @@
+.title {
+	font-family: "Lily Script One";
+	font-size: 15vh;
+    position: relative;
+}
+body {
+
+}
+table {
+    font-family: "Lexend";
+    font-size: 25px;
+    border-collapse: collapse;
+    border: solid 5px black;
+    position: relative;
+    top: 25px;
+}
+td {
+    width: 30px;
+    height: 30px;
+    border: solid 1px silver;
+    text-align: center;
+}
+#dice {
+    box-shadow: 5px 5px 7px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    position: relative;
+    left: 350px;
+    top: 100px;
+}
