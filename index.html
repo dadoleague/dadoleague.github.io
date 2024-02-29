@@ -239,14 +239,27 @@
 			var max = 6.5;
 			var randomNumber = getRandomInt(min, max);
 			setTimeout(function() {
+				document.getElementById('d1').src='./images/face'+randomNumber+'.png';
+			}, 10)
+			setTimeout(function() {
 				cube.style.animationName='dough';
 			}, 1000)
-			setTimeout(function() {
-				document.getElementById('d1').src='./images/face'+randomNumber+'.png';
-			}, 500)
+		
+			
+			
 		}
 		function getRandomInt(min, max) {
 			return Math.floor(Math.random() * (max-min)) + min;
 		}
+		/*function colorTd(randomNumber) {
+			var cell = document.getElementById('R'+randomNumber+'C'+2)
+			if(cell.style.backgroundColor!='black') {
+				cell.style.backgroundColor='black';
+			}
+			else {
+				cell = document.getElementById('R'+randomNumber+'C'+3)
+				cell.style.backgroundColor='black';
+			}
+		}*/
 	</script>
 </html>
