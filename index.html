@@ -215,18 +215,35 @@
 			</tr>		
 		</table>
 		</center>
-		<img id="dice" src="./images/face1.png" onclick="getRandomNumber()" width="150px">
+		<div class="dice-container">
+			<div id="cube">
+				<img class="dice-face" id="d1" src="./images/face1.png" onclick="diceClicked()" width="150px">
+				<img class="dice-face" id="d2" src="./images/face2.png" onclick="diceClicked()" width="150px">
+				<img class="dice-face" id="d3" src="./images/face3.png" onclick="diceClicked()" width="150px">
+				<img class="dice-face" id="d4" src="./images/face4.png" onclick="diceClicked()" width="150px">
+				<img class="dice-face" id="d5" src="./images/face5.png" onclick="diceClicked()" width="150px">
+				<img class="dice-face" id="d6" src="./images/face6.png" onclick="diceClicked()" width="150px">
+			</div>
+		</div>
 	</body>
 	<script>
+		
 		var i=0;
+		var cube = document.getElementById('cube');
 		for(i=1;i<=6;i++) {
 			document.getElementById('R'+i+'C1').innerHTML=i;
 		}
-		function getRandomNumber() {
+		function diceClicked() {
+			cube.style.animationName='diceAnimation';
 			var min = 1;
 			var max = 6.5;
 			var randomNumber = getRandomInt(min, max);
-			document.getElementById('dice').src='./images/face'+randomNumber+'.png';
+			setTimeout(function() {
+				cube.style.animationName='dough';
+			}, 1000)
+			setTimeout(function() {
+				document.getElementById('d1').src='./images/face'+randomNumber+'.png';
+			}, 500)
 		}
 		function getRandomInt(min, max) {
 			return Math.floor(Math.random() * (max-min)) + min;
