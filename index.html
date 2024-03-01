@@ -14,9 +14,9 @@
 	</head>
 	<body>
 		<center class="title">Dado League</center>
-		<center><table>
+		<center><table id="table">
 			<tr id="line1" class="line">
-				<td id="name1" class="name">Io</td>
+				<td id="name1" class="name">Anostradamus</td>
 				<td id="R1C1" class="firstColumn"></td>
 				<td id="R1C2"></td>
 				<td id="R1C3"></td>
@@ -214,6 +214,27 @@
 				<td id="R6C30"></td>
 			</tr>		
 		</table>
+		<div id="insertnames">
+			</br>
+			Insert Player Names
+			<div id="numbers">
+				<label>1:</label>
+				<label>2:</label>
+				<label>3:</label>
+				<label>4:</label>
+				<label>5:</label>
+				<label>6:</label>
+			</div>
+			<div id="inputs">
+				<input class="inputname" id="p1name"type="text" name="p1name" maxlength="20" placeholder="name">
+				<input class="inputname" id="p2name"type="text" name="p2name" maxlength="20" placeholder="name">
+				<input class="inputname" id="p3name"type="text" name="p3name" maxlength="20" placeholder="name">
+				<input class="inputname" id="p4name"type="text" name="p4name" maxlength="20" placeholder="name">
+				<input class="inputname" id="p5name"type="text" name="p5name" maxlength="20" placeholder="name">
+				<input class="inputname" id="p6name"type="text" name="p6name" maxlength="20" placeholder="name">
+			</div>
+			<button id="submit" type="button" onclick="textSubmitted()">Submit</button>
+		</div>
 		</center>
 		<div class="dice-container">
 			<div id="cube">
@@ -235,8 +256,27 @@
 		const player6 = [];
 		var i=0;
 		var cube = document.getElementById('cube');
+		var table = document.getElementById('table');
 		for(i=1;i<=6;i++) {
 			document.getElementById('R'+i+'C1').innerHTML=i;
+		}
+		let form = document.getElementById('insertnames');
+		function textSubmitted() {
+			document.getElementById('name1').innerHTML=document.getElementById('p1name').value;
+			document.getElementById('name2').innerHTML=document.getElementById('p2name').value;
+			document.getElementById('name3').innerHTML=document.getElementById('p3name').value;
+			document.getElementById('name4').innerHTML=document.getElementById('p4name').value;
+			document.getElementById('name5').innerHTML=document.getElementById('p5name').value;
+			document.getElementById('name6').innerHTML=document.getElementById('p6name').value;
+			/*for(let i=1;i<=6;i++) {
+				if(document.getElementById('p'+i+'name').value=='') {
+					document.getElementById('name'+i).innerHTML='Player'+i;
+				}
+			}*/
+			cube.style.visibility = 'visible';
+			table.style.visibility = 'visible';
+			form.style.visibility = 'hidden';
+			console.log(p1name);
 		}
 		function diceClicked() {
 			cube.style.animationName='diceAnimation';
@@ -318,6 +358,7 @@
 				for(let i=1;i<=6;i++) {
 					if(document.getElementById('R'+i+'C30').style.backgroundColor=='black') {
 						alert(i+' has won');
+						location.reload();
 					}
 				}
 			}, 1000)
