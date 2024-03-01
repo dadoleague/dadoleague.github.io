@@ -46,7 +46,7 @@
 				<td id="R1C27"></td>
 				<td id="R1C28"></td>
 				<td id="R1C29"></td>
-				<td id="R1C30"></td>
+				<td id="R1C30" style="background-color:silver;"></td>
 			</tr>
 			<tr id="line2" class="line">
 				<td id="name2" class="name"></td>
@@ -112,7 +112,7 @@
 				<td id="R3C27"></td>
 				<td id="R3C28"></td>
 				<td id="R3C29"></td>
-				<td id="R3C30"></td>
+				<td id="R3C30" style="background-color:silver;"></td>
 			</tr>
 			<tr id="line4" class="line">
 				<td id="name4" class="name"></td>
@@ -178,7 +178,7 @@
 				<td id="R5C27"></td>
 				<td id="R5C28"></td>
 				<td id="R5C29"></td>
-				<td id="R5C30"></td>
+				<td id="R5C30" style="background-color:silver;"></td>
 			</tr>
 			<tr id="line6" class="line">
 				<td id="name6" class="name"></td>
@@ -227,7 +227,12 @@
 		</div>
 	</body>
 	<script>
-		
+		const player1 = [28];
+		const player2 = [];
+		const player3 = [];
+		const player4 = [];
+		const player5 = [];
+		const player6 = [];
 		var i=0;
 		var cube = document.getElementById('cube');
 		for(i=1;i<=6;i++) {
@@ -243,6 +248,78 @@
 			}, 10)
 			setTimeout(function() {
 				cube.style.animationName='dough';
+
+				switch(randomNumber) {
+					case 1:
+						player1.push(1)
+						break;
+					case 2:
+						player2.push(1)
+						break;
+					case 3:
+						player3.push(1)
+						break;
+					case 4:
+						player4.push(1)
+						break;
+					case 5:
+						player5.push(1)
+						break;
+					case 6:
+						player6.push(1)
+						break;
+				}
+
+				var sum1 = 0;
+				var sum2 = 0;
+				var sum3 = 0;
+				var sum4 = 0;
+				var sum5 = 0;
+				var sum6 = 0;
+
+				for(let i=0;i<player1.length;i++) {
+					sum1 += player1[i];
+				}
+				for(let i=0;i<player2.length;i++) {
+					sum2 += player2[i];
+				}
+				for(let i=0;i<player3.length;i++) {
+					sum3 += player3[i];
+				}
+				for(let i=0;i<player4.length;i++) {
+					sum4 += player4[i];
+				}
+				for(let i=0;i<player5.length;i++) {
+					sum5 += player5[i];
+				}
+				for(let i=0;i<player6.length;i++) {
+					sum6 += player6[i];
+				}
+
+				for(let i=1;i<=sum1;i++) {
+					document.getElementById('R'+1+'C'+(i+1)).style.backgroundColor='black';
+				}
+				for(let i=1;i<=sum2;i++) {
+					document.getElementById('R'+2+'C'+(i+1)).style.backgroundColor='black';
+				}
+				for(let i=1;i<=sum3;i++) {
+					document.getElementById('R'+3+'C'+(i+1)).style.backgroundColor='black';
+				}
+				for(let i=1;i<=sum4;i++) {
+					document.getElementById('R'+4+'C'+(i+1)).style.backgroundColor='black';
+				}
+				for(let i=1;i<=sum5;i++) {
+					document.getElementById('R'+5+'C'+(i+1)).style.backgroundColor='black';
+				}
+				for(let i=1;i<=sum6;i++) {
+					document.getElementById('R'+6+'C'+(i+1)).style.backgroundColor='black';
+				}
+				
+				for(let i=1;i<=6;i++) {
+					if(document.getElementById('R'+i+'C30').style.backgroundColor=='black') {
+						alert(i+' has won');
+					}
+				}
 			}, 1000)
 		
 			
@@ -252,7 +329,8 @@
 			return Math.floor(Math.random() * (max-min)) + min;
 		}
 		/*function colorTd(randomNumber) {
-			var cell = document.getElementById('R'+randomNumber+'C'+2)
+			var pos = 2;
+			var cell = document.getElementById('R'+randomNumber+'C'+pos)
 			if(cell.style.backgroundColor!='black') {
 				cell.style.backgroundColor='black';
 			}
