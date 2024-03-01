@@ -241,7 +241,7 @@
 		function diceClicked() {
 			cube.style.animationName='diceAnimation';
 			var min = 1;
-			var max = 6.5;
+			var max = 6;
 			var randomNumber = getRandomInt(min, max);
 			setTimeout(function() {
 				document.getElementById('d1').src='./images/face'+randomNumber+'.png';
@@ -326,7 +326,7 @@
 			
 		}
 		function getRandomInt(min, max) {
-			return Math.floor(Math.random() * (max-min)) + min;
+			return Math.floor(Math.random() * (max)) + min;
 		}
 		/*function colorTd(randomNumber) {
 			var pos = 2;
